@@ -26,7 +26,7 @@ import GooglePlaces
         self.placeFields = GMSPlaceField.defaultFields
         self.placesFilter = nil
         self.pickerRenderer = DefaultPickerRenderer()
-        self.initialZoom = 13.0
+        self.initialZoom = 16.0
         self.initialCoordinate = initialCoordinate
     }
 }

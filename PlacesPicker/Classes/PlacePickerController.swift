@@ -35,7 +35,8 @@ import GooglePlaces
     private func setInitialCoordinateIfNeeded() {
         if let initialCoordinate = self.config.initialCoordinate {
             let position = GMSCameraPosition(latitude: initialCoordinate.latitude, longitude: initialCoordinate.longitude, zoom: config.initialZoom)
-            pickerView.mapView.animate(to: position)
+          selectPlaceAt(coordinate: initialCoordinate)
+          pickerView.mapView.animate(to: position)
         }
     }
     
@@ -64,7 +65,7 @@ import GooglePlaces
     }
     
     private lazy var marker: GMSMarker = {
-       return GMSMarker(position: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0))
+      return GMSMarker(position: config.initialCoordinate ?? CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0))
     }()
     
     @objc
