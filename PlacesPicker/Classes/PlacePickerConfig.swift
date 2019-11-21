@@ -17,21 +17,16 @@ import GooglePlaces
     public let initialCoordinate: CLLocationCoordinate2D?
     public let initialZoom: Float
     
-    @objc public static func defaultConfig() -> PlacePickerConfig {
-        return PlacePickerConfig()
+  @objc public static func defaultConfig(coordinate cor:CLLocationCoordinate2D) -> PlacePickerConfig {
+        return PlacePickerConfig(initialCoordinate: cor)
     }
-    
-    public init(listRenderer: PlacesListRenderer = DefaultPlacesListRenderer(),
-                placeFields: GMSPlaceField = GMSPlaceField.defaultFields,
-                placesFilter: GMSAutocompleteFilter? = nil,
-                pickerRenderer: PickerRenderer = DefaultPickerRenderer(),
-                initialCoordinate: CLLocationCoordinate2D? = nil,
-                initialZoom: Float = 13.0) {
-        self.listRenderer = listRenderer
-        self.placeFields = placeFields
-        self.placesFilter = placesFilter
-        self.pickerRenderer = pickerRenderer
-        self.initialZoom = initialZoom
+      
+    public init(initialCoordinate: CLLocationCoordinate2D? = nil) {
+        self.listRenderer = DefaultPlacesListRenderer()
+        self.placeFields = GMSPlaceField.defaultFields
+        self.placesFilter = nil
+        self.pickerRenderer = DefaultPickerRenderer()
+        self.initialZoom = 13.0
         self.initialCoordinate = initialCoordinate
     }
 }

@@ -19,7 +19,7 @@ import GooglePlaces
         googleMapsKey = googleMapsAPIKey
     }
     
-    @objc public static func placePickerController(config: PlacePickerConfig = PlacePickerConfig.defaultConfig()) -> PlacePickerController {
+    @objc public static func placePickerController(config: PlacePickerConfig) -> PlacePickerController {
         return PlacePickerController.controler(config: config)
     }
 }
