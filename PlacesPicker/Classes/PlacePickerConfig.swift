@@ -16,18 +16,20 @@ import GooglePlaces
     public let placesFilter: GMSAutocompleteFilter?
     public let initialCoordinate: CLLocationCoordinate2D?
     public let initialZoom: Float
+    public let showCancelButton: Bool
     
-  @objc public static func defaultConfig(coordinate cor:CLLocationCoordinate2D) -> PlacePickerConfig {
-        return PlacePickerConfig(initialCoordinate: cor)
+    @objc public static func defaultConfig(coordinate cor:CLLocationCoordinate2D, showCancelButton:Bool = true) -> PlacePickerConfig {
+        return PlacePickerConfig(initialCoordinate: cor, showCancelButton: showCancelButton)
     }
       
-    public init(initialCoordinate: CLLocationCoordinate2D? = nil) {
+    public init(initialCoordinate: CLLocationCoordinate2D? = nil, showCancelButton: Bool = true) {
         self.listRenderer = DefaultPlacesListRenderer()
         self.placeFields = GMSPlaceField.defaultFields
         self.placesFilter = nil
         self.pickerRenderer = DefaultPickerRenderer()
         self.initialZoom = 16.0
         self.initialCoordinate = initialCoordinate
+        self.showCancelButton = showCancelButton
     }
 }
 
@@ -38,7 +40,7 @@ extension GMSPlaceField {
                                        UInt(GMSPlaceField.addressComponents.rawValue) |
                                        UInt(GMSPlaceField.coordinate.rawValue) |
                                        UInt(GMSPlaceField.formattedAddress.rawValue) |
-                                       UInt(GMSPlaceField.photos.rawValue))!
+                                       UInt(GMSPlaceField.photos.rawValue))
     }
 }
 

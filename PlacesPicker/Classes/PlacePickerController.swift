@@ -53,10 +53,11 @@ import GooglePlaces
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showPlacesSearch))
         config.pickerRenderer.configureSearchButton(barButtonItem: searchButton)
         self.navigationItem.rightBarButtonItem = searchButton
-        
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelSelection))
-        config.pickerRenderer.configureCancelButton(barButtonItem: cancelButton)
-        self.navigationItem.leftBarButtonItem = cancelButton
+        if config.showCancelButton {
+            let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelSelection))
+            config.pickerRenderer.configureCancelButton(barButtonItem: cancelButton)
+            self.navigationItem.leftBarButtonItem = cancelButton
+        }
     }
     
     @objc
